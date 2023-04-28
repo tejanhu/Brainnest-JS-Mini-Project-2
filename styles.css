@@ -1,0 +1,14 @@
+body{
+    text-transform: uppercase;
+    background-color: rgb(56, 79, 123);
+    color: white;
+    font-size: larger;
+}
+
+span{
+    border: 2px solid white;
+}
+
+.container{
+    text-align: center;
+}
