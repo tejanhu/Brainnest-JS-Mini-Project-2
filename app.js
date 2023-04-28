@@ -56,55 +56,41 @@ function playRound(player_selection, pc_selection){
     var msg = "";
     
     if(pc_selection === ("Paper") && player_selection === ("Rock")){
-        console.log("You chose: " + player_selection);
-        console.log("The PC chose: " + pc_selection);
         pc_score+=5;
         msg = "You lost! Paper beats Rock!";
         rps_outcome.textContent = msg;
     }
 
     else if(pc_selection === ("Rock") && player_selection === ("Paper")){
-        console.log("You chose: " + player_selection);
-        console.log("The PC chose: " + pc_selection);
         player_score+=5;
         msg = "You won! Paper beats Rock!";
         rps_outcome.textContent = msg;
     }
 
     else if(pc_selection === ("Scissors") && player_selection === ("Paper")){
-        console.log("You chose: " + player_selection);
-        console.log("The PC chose: " + pc_selection);
         pc_score+=5;
         msg = "You lost! Scissors beats Paper!";
         rps_outcome.textContent = msg;
     }
 
     else if(pc_selection === ("Paper") && player_selection === ("Scissors")){
-        console.log("You chose: " + player_selection);
-        console.log("The PC chose: " + pc_selection);
         player_score+=5;
         msg = "You won! Scissors beats Paper!";
         rps_outcome.textContent = msg;
     }
 
     else if(pc_selection === ("Rock") && player_selection === ("Scissors")){
-        console.log("You chose: " + player_selection);
-        console.log("The PC chose: " + pc_selection);
         pc_score+=5;
         msg = "You lost! Rock beats Scissors!";
         rps_outcome.textContent = msg;
     }
     else if(pc_selection === ("Scissors") && player_selection === ("Rock")){
-        console.log("You chose: " + player_selection);
-        console.log("The PC chose: " + pc_selection);
         player_score+=5;
         msg = "You won! Rock beats Scissors!";
         rps_outcome.textContent = msg;
     }
 
     else if(pc_selection === ("Rock") && player_selection === ("Rock")){
-        console.log("You chose: " + player_selection);
-        console.log("The PC chose: " + pc_selection);
         player_score+=5;
         pc_score+=5;
         msg = "It's a tie! You both have a Rock!";
@@ -112,8 +98,6 @@ function playRound(player_selection, pc_selection){
     }
 
     else if(pc_selection === ("Scissors") && player_selection === ("Scissors")){
-        console.log("You chose: " + player_selection);
-        console.log("The PC chose: " + pc_selection);
         player_score+=5;
         pc_score+=5;
         msg = "It's a tie! You both have Scissors!";
@@ -121,14 +105,12 @@ function playRound(player_selection, pc_selection){
     }
 
     else if(pc_selection === ("Paper") && player_selection === ("Paper")){
-        console.log("You chose: " + player_selection);
-        console.log("The PC chose: " + pc_selection);
         player_score+=5;
         pc_score+=5;
         msg = "It's a tie! You both have Paper!";
         rps_outcome.textContent = msg;
     }
-    
+
     pc_score_display.textContent = pc_score;
     player_score_display.textContent = player_score;
 
