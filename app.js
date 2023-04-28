@@ -55,56 +55,56 @@ function playerPlay(){
 function playRound(player_selection, pc_selection){
     var msg = "";
     
-    if(pc_selection === ("Paper") && player_selection === ("Rock")){
+    if(pc_selection === ("Paper") && player_selection.toLowerCase() === ("Rock").toLowerCase() && player_selection.toUpperCase() === ("Rock").toUpperCase()){
         pc_score+=5;
         msg = "You lost! Paper beats Rock!";
         rps_outcome.textContent = msg;
     }
 
-    else if(pc_selection === ("Rock") && player_selection === ("Paper")){
+    else if(pc_selection === ("Rock") && player_selection.toLowerCase() === ("Paper").toLowerCase() && player_selection.toUpperCase() === ("Paper").toUpperCase()){
         player_score+=5;
         msg = "You won! Paper beats Rock!";
         rps_outcome.textContent = msg;
     }
 
-    else if(pc_selection === ("Scissors") && player_selection === ("Paper")){
+    else if(pc_selection === ("Scissors") && player_selection.toLowerCase() === ("Paper").toLowerCase() && player_selection.toUpperCase() === ("Paper").toUpperCase()){
         pc_score+=5;
         msg = "You lost! Scissors beats Paper!";
         rps_outcome.textContent = msg;
     }
 
-    else if(pc_selection === ("Paper") && player_selection === ("Scissors")){
+    else if(pc_selection === ("Paper") && player_selection.toLowerCase() === ("Scissors").toLowerCase() && player_selection.toUpperCase() === ("Scissors").toUpperCase()){
         player_score+=5;
         msg = "You won! Scissors beats Paper!";
         rps_outcome.textContent = msg;
     }
 
-    else if(pc_selection === ("Rock") && player_selection === ("Scissors")){
+    else if(pc_selection === ("Rock") && player_selection.toLowerCase() === ("Scissors").toLowerCase() && player_selection.toUpperCase() === ("Scissors").toUpperCase()){
         pc_score+=5;
         msg = "You lost! Rock beats Scissors!";
         rps_outcome.textContent = msg;
     }
-    else if(pc_selection === ("Scissors") && player_selection === ("Rock")){
+    else if(pc_selection === ("Scissors") && player_selection.toLowerCase() === ("Rock").toLowerCase() && player_selection.toUpperCase() === ("Rock").toUpperCase()){
         player_score+=5;
         msg = "You won! Rock beats Scissors!";
         rps_outcome.textContent = msg;
     }
 
-    else if(pc_selection === ("Rock") && player_selection === ("Rock")){
+    else if(pc_selection === ("Rock") && player_selection.toLowerCase() === ("Rock").toLowerCase() && player_selection.toUpperCase() === ("Rock").toUpperCase()){
         player_score+=5;
         pc_score+=5;
         msg = "It's a tie! You both have a Rock!";
         rps_outcome.textContent = msg;
     }
 
-    else if(pc_selection === ("Scissors") && player_selection === ("Scissors")){
+    else if(pc_selection === ("Scissors") && player_selection.toLowerCase() === ("Scissors").toLowerCase() && player_selection.toUpperCase() === ("Scissors").toUpperCase()){
         player_score+=5;
         pc_score+=5;
         msg = "It's a tie! You both have Scissors!";
         rps_outcome.textContent = msg;
     }
 
-    else if(pc_selection === ("Paper") && player_selection === ("Paper")){
+    else if(pc_selection === ("Paper") && player_selection.toLowerCase() === ("Paper").toLowerCase() && player_selection.toUpperCase() === ("Paper").toUpperCase()){
         player_score+=5;
         pc_score+=5;
         msg = "It's a tie! You both have Paper!";
