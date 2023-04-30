@@ -95,7 +95,7 @@ function playRound(player_selection, computer_selection){
         rps_outcome.textContent = msg;
     }
 
-    computer_score_display.textContent = pc_score;
+    computer_score_display.textContent = computer_score;
     player_score_display.textContent = player_score;
 
     if(computer_score == 5 || player_score == 5){
