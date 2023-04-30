@@ -4,10 +4,15 @@ var player_score = 0;
 var pc_score = 0;
 
 function computerPlay(){
-    var tools = ["rock", "paper", "scissors"];
-    randomise_tools = tools[Math.floor(Math.random()*(tools.length))];
-    console.log("The Computer chose to play: " + randomise_tools);
-    return randomise_tools;
+    pc_choice = Math.random();
+    if (pc_choice < 0.5) {
+        pc_choice = "Rock";
+    } else if(pc_choice <= 1.5) {
+        pc_choice = "Paper";
+    } else {
+        pc_choice = "Scissors";
+    }
+    return pc_selection = pc_choice;
 }
 
 const rock = document.getElementById("rock");
