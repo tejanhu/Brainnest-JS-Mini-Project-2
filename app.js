@@ -17,33 +17,20 @@ const pc_score_display = document.getElementById("pc-score");
 const player_score_display = document.getElementById("player-score");
 const rps_outcome = document.getElementById("rps-outcome");
 
-var rock_clicked = false;
-var paper_clicked = false;
-var scissors_clicked = false;
-
 function playerPlay(){
     rock.addEventListener("click", function(){
-        rock_clicked = true;
-       if(rock_clicked){
-        player_selection = "Rock";
-       }
-       playRound(playRound(player_selection, pc_selection));   
+       player_selection = "Rock";
+       playRound(player_selection, pc_selection);   
     });
 
     paper.addEventListener("click", function(){
-        paper_clicked = true;
-        if(paper_clicked){
-            player_selection = "Paper";
-        }
-        playRound(playRound(player_selection, pc_selection));   
+        player_selection = "Paper";
+        playRound(player_selection, pc_selection);   
     });
 
     scissors.addEventListener("click", function(){
-        scissors_clicked = true;
-        if(scissors_clicked){
-            player_selection = "Scissors";
-        }
-        playRound(playRound(player_selection, pc_selection));   
+        player_selection = "Scissors";
+        playRound(player_selection, pc_selection);   
     });
 }
 
