@@ -1,105 +1,63 @@
-var pc_selection = computerPlay();
-var player_selection = " ";
 var player_score = 0;
-var pc_score = 0;
+var computer_score = 0;
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+const buttons = [rock, paper, scissors];
+const computer_score_display = document.getElementById("pc-score");
+const player_score_display = document.getElementById("player-score");
+const rps_outcome = document.getElementById("rps-outcome");
+
+function playerPlay(){
+        buttons.forEach(button => {
+            button.addEventListener("click", function(){
+                alert(button.textContent.toLowerCase());
+                return playRound(button.textContent.toLowerCase(), computerPlay());
+            });
+        });
+}
 
 function computerPlay(){
     var tools = ["rock", "paper", "scissors"];
     randomise_tools = tools[Math.floor(Math.random()*(tools.length))];
     console.log("The Computer chose to play: " + randomise_tools);
-    return pc_selection = randomise_tools;
+    return randomise_tools;
 }
 
-const rock = document.getElementById("rock");
-const paper = document.getElementById("paper");
-const scissors = document.getElementById("scissors");
-const pc_score_display = document.getElementById("pc-score");
-const player_score_display = document.getElementById("player-score");
-const rps_outcome = document.getElementById("rps-outcome");
-
-function playerPlay(){
-    rock.addEventListener("click", function(){
-       player_selection = "Rock";
-       playRound(player_selection, pc_selection);   
-    });
-
-    paper.addEventListener("click", function(){
-        player_selection = "Paper";
-        playRound(player_selection, pc_selection);   
-    });
-
-    scissors.addEventListener("click", function(){
-        player_selection = "Scissors";
-        playRound(player_selection, pc_selection);   
-    });
-}
-
-function playRound(player_selection, pc_selection){
+function playRound(playerPlay, computerPlay){
     var msg = "";
+
+    if(playerPlay == computerPlay){
+        player_score+=5;
+        computer_score+=5;
+        msg = `It's a tie! You both have ${computerPlay}`;
+        rps_outcome.textContent = msg;
+    }
     
-    if(pc_selection === ("Paper") && player_selection.toLowerCase() === ("Rock").toLowerCase() && player_selection.toUpperCase() === ("Rock").toUpperCase()){
-        pc_score+=5;
-        msg = "You lost! Paper beats Rock!";
-        rps_outcome.textContent = msg;
-    }
+    else if(
+        (playerPlay == "rock" && computerPlay == "paper") || 
+        (playerPlay == "paper" && computerPlay == "scissors") || 
+        (playerPlay == "scissors" && computerPlay == "rock")
+        )
+        {
+            computer_score+=5;
+            msg = `You lost! ${computerPlay} beats ${playerPlay}!`;
+            rps_outcome.textContent = msg;
+        }
 
-    else if(pc_selection === ("Rock") && player_selection.toLowerCase() === ("Paper").toLowerCase() && player_selection.toUpperCase() === ("Paper").toUpperCase()){
+    else{
         player_score+=5;
-        msg = "You won! Paper beats Rock!";
+        msg = `You won! ${playerPlay} beats ${computerPlay}!`;
         rps_outcome.textContent = msg;
     }
-
-    else if(pc_selection === ("Scissors") && player_selection.toLowerCase() === ("Paper").toLowerCase() && player_selection.toUpperCase() === ("Paper").toUpperCase()){
-        pc_score+=5;
-        msg = "You lost! Scissors beats Paper!";
-        rps_outcome.textContent = msg;
-    }
-
-    else if(pc_selection === ("Paper") && player_selection.toLowerCase() === ("Scissors").toLowerCase() && player_selection.toUpperCase() === ("Scissors").toUpperCase()){
-        player_score+=5;
-        msg = "You won! Scissors beats Paper!";
-        rps_outcome.textContent = msg;
-    }
-
-    else if(pc_selection === ("Rock") && player_selection.toLowerCase() === ("Scissors").toLowerCase() && player_selection.toUpperCase() === ("Scissors").toUpperCase()){
-        pc_score+=5;
-        msg = "You lost! Rock beats Scissors!";
-        rps_outcome.textContent = msg;
-    }
-    else if(pc_selection === ("Scissors") && player_selection.toLowerCase() === ("Rock").toLowerCase() && player_selection.toUpperCase() === ("Rock").toUpperCase()){
-        player_score+=5;
-        msg = "You won! Rock beats Scissors!";
-        rps_outcome.textContent = msg;
-    }
-
-    else if(pc_selection === ("Rock") && player_selection.toLowerCase() === ("Rock").toLowerCase() && player_selection.toUpperCase() === ("Rock").toUpperCase()){
-        player_score+=5;
-        pc_score+=5;
-        msg = "It's a tie! You both have a Rock!";
-        rps_outcome.textContent = msg;
-    }
-
-    else if(pc_selection === ("Scissors") && player_selection.toLowerCase() === ("Scissors").toLowerCase() && player_selection.toUpperCase() === ("Scissors").toUpperCase()){
-        player_score+=5;
-        pc_score+=5;
-        msg = "It's a tie! You both have Scissors!";
-        rps_outcome.textContent = msg;
-    }
-
-    else if(pc_selection === ("Paper") && player_selection.toLowerCase() === ("Paper").toLowerCase() && player_selection.toUpperCase() === ("Paper").toUpperCase()){
-        player_score+=5;
-        pc_score+=5;
-        msg = "It's a tie! You both have Paper!";
-        rps_outcome.textContent = msg;
-    }
-
-    pc_score_display.textContent = pc_score;
+   
+    computer_score_display.textContent = computer_score;
     player_score_display.textContent = player_score;
 
-    if(pc_score == 5 || player_score == 5){
-        rock.disabled = true;
-        paper.disabled = true;
-        scissors.disabled = true;
+    if(computer_score == 5 || player_score == 5){
+        for(button of buttons){
+            button.disabled = true;
+        }
     }
 }
 
