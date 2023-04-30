@@ -2,10 +2,10 @@ var computer_selection = computerPlay();
 var player_selection = " ";
 var player_score = 0;
 var computer_score = 0;
-var tools = ["rock", "paper", "scissors"];
 
 
 function computerPlay(){
+    var tools = ["rock", "paper", "scissors"];
     randomise_tools = tools[Math.floor(Math.random()*(tools.length))];
     console.log("The Computer chose to play: " + randomise_tools);
     return computer_selection = randomise_tools;
