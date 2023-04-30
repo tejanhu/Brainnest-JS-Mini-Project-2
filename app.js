@@ -91,7 +91,7 @@ function playRound(player_selection, computer_selection){
         console.log("The PC chose: " + computer_selection);
         player_score+=5;
         computer_score+=5;
-        msg = `It's a tie this round! You both have a ${playerPlay}!`;
+        msg = `It's a tie this round! You both have a ${player_selection}!`;
         rps_outcome.textContent = msg;
     }
 
