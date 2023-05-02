@@ -9,13 +9,16 @@ const player_score_display = document.getElementById("player-score");
 const rps_outcome = document.getElementById("rps-outcome");
 
 function playerPlay(){
-        buttons.forEach(button => {
-            button.addEventListener("click", function(){
-                alert(button.textContent.toLowerCase());
-                return playRound(button.textContent.toLowerCase(), computerPlay());
+    buttons.forEach(button => 
+        {
+            button.addEventListener("click", function()
+            {   
+                const player_selection = button.textContent.trim().toLowerCase();
+                playRound(player_selection, computerPlay());
             });
         });
 }
+
 
 function computerPlay(){
     var tools = ["rock", "paper", "scissors"];
@@ -27,10 +30,11 @@ function computerPlay(){
 function playRound(playerPlay, computerPlay){
     var msg = "";
 
-    if(playerPlay == computerPlay){
-        player_score+=5;
+    if(playerPlay === computerPlay){
         computer_score+=5;
+        player_score+=5;
         msg = `It's a tie! You both have ${computerPlay}`;
+        console.log(`${playerPlay} vs ${computerPlay}`);
         rps_outcome.textContent = msg;
     }
     
@@ -42,12 +46,14 @@ function playRound(playerPlay, computerPlay){
         {
             computer_score+=5;
             msg = `You lost! ${computerPlay} beats ${playerPlay}!`;
+            console.log(`${playerPlay} vs ${computerPlay}`);
             rps_outcome.textContent = msg;
         }
 
     else{
         player_score+=5;
         msg = `You won! ${playerPlay} beats ${computerPlay}!`;
+        console.log(`${playerPlay} vs ${computerPlay}`);
         rps_outcome.textContent = msg;
     }
    
