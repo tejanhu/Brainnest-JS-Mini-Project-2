@@ -30,7 +30,7 @@ function computerPlay(){
 function playRound(playerPlay, computerPlay){
     var msg = "";
 
-    if(playerPlay === computerPlay){
+    if(playerPlay == computerPlay){
         computer_score+=5;
         player_score+=5;
         msg = `It's a tie! You both have ${computerPlay}`;
